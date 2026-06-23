@@ -32,7 +32,7 @@ export default function LoginPage() {
       }
       localStorage.setItem("auth_token", data.access_token);
       localStorage.setItem("mock_user", JSON.stringify(data.user)); // Still used by UI for avatar
-      router.push("/compiler");
+      router.push("/travel");
     } catch (err) {
       setError("Failed to connect to server");
       setIsLoading(false);
@@ -65,7 +65,7 @@ export default function LoginPage() {
         }
         localStorage.setItem("auth_token", data.access_token);
         localStorage.setItem("mock_user", JSON.stringify(data.user));
-        router.push("/compiler");
+        router.push("/travel");
       } catch (err) {
         setError("Failed to connect to server");
         setIsLoading(false);

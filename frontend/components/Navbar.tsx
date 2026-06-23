@@ -96,7 +96,7 @@ export default function Navbar() {
       >
         {/* Logo - Hidden when logged in (Sidebar handles it) */}
         {!user ? (
-          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
+          <Link href="/home" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
             <div
               style={{
                 width: 36,

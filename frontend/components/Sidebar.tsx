@@ -73,7 +73,7 @@ export default function Sidebar() {
     >
       {/* Brand Header */}
       <div style={{ padding: "24px", borderBottom: "1px solid var(--color-border)" }} className="dark:border-[var(--color-dark-border)]">
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
+        <Link href="/home" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
           <div
             style={{
               width: 32,

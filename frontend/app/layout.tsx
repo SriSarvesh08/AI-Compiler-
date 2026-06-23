@@ -87,7 +87,7 @@ function Footer() {
         {/* Links */}
         <div style={{ display: "flex", gap: 24 }}>
           {[
-            { href: "/", label: "Home" },
+            { href: "/home", label: "Home" },
             { href: "/compiler", label: "Compiler" },
             { href: "/evaluation", label: "Evaluation" },
             { href: "/settings", label: "Settings" },
