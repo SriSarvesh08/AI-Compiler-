@@ -58,7 +58,7 @@ def get_current_user(authorization: str = Header(None)):
         
         conn = get_db()
         c = conn.cursor()
-        c.execute("SELECT * FROM users WHERE id = ?", (user_id,))
+        c.execute("SELECT * FROM users WHERE id = %s", (user_id,))
         user = c.fetchone()
         conn.close()
         
@@ -79,7 +79,7 @@ def get_current_user_optional(authorization: str = Header(None)):
             return None
         conn = get_db()
         c = conn.cursor()
-        c.execute("SELECT * FROM users WHERE id = ?", (user_id,))
+        c.execute("SELECT * FROM users WHERE id = %s", (user_id,))
         user = c.fetchone()
         conn.close()
         return dict(user) if user else None
@@ -92,7 +92,7 @@ async def register(user_data: UserRegister):
     c = conn.cursor()
     
     # Check if email exists
-    c.execute("SELECT id FROM users WHERE email = ?", (user_data.email,))
+    c.execute("SELECT id FROM users WHERE email = %s", (user_data.email,))
     if c.fetchone():
         conn.close()
         raise HTTPException(status_code=400, detail="Email already registered")
@@ -110,10 +110,10 @@ async def register(user_data: UserRegister):
     })
     
     c.execute(
-        "INSERT INTO users (name, email, password_hash, settings_json) VALUES (?, ?, ?, ?)",
+        "INSERT INTO users (name, email, password_hash, settings_json) VALUES (%s, %s, %s, %s) RETURNING id",
         (user_data.name, user_data.email, hashed_password, default_settings)
     )
-    user_id = c.lastrowid
+    user_id = c.fetchone()['id']
     conn.commit()
     conn.close()
     
@@ -132,7 +132,7 @@ async def register(user_data: UserRegister):
 async def login(user_data: UserLogin):
     conn = get_db()
     c = conn.cursor()
-    c.execute("SELECT * FROM users WHERE email = ?", (user_data.email,))
+    c.execute("SELECT * FROM users WHERE email = %s", (user_data.email,))
     user = c.fetchone()
     conn.close()
     
@@ -183,7 +183,7 @@ async def google_auth(auth_data: GoogleAuth):
             
         conn = get_db()
         c = conn.cursor()
-        c.execute("SELECT * FROM users WHERE email = ?", (email,))
+        c.execute("SELECT * FROM users WHERE email = %s", (email,))
         user = c.fetchone()
         
         if not user:
@@ -202,13 +202,13 @@ async def google_auth(auth_data: GoogleAuth):
                 "defaultTab": "overview"
             })
             c.execute(
-                "INSERT INTO users (name, email, password_hash, settings_json) VALUES (?, ?, ?, ?)",
+                "INSERT INTO users (name, email, password_hash, settings_json) VALUES (%s, %s, %s, %s) RETURNING id",
                 (name, email, hashed_password, default_settings)
             )
-            user_id = c.lastrowid
+            user_id = c.fetchone()['id']
             conn.commit()
             
-            c.execute("SELECT * FROM users WHERE id = ?", (user_id,))
+            c.execute("SELECT * FROM users WHERE id = %s", (user_id,))
             user = c.fetchone()
             
         conn.close()

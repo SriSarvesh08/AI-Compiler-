@@ -23,7 +23,7 @@ async def update_settings(settings: UserSettings, current_user: dict = Depends(g
     settings_json = json.dumps(settings.dict())
     
     c.execute(
-        "UPDATE users SET settings_json = ? WHERE id = ?",
+        "UPDATE users SET settings_json = %s WHERE id = %s",
         (settings_json, current_user["id"])
     )
     conn.commit()
