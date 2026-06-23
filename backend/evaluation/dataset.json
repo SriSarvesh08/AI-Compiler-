@@ -1,0 +1,142 @@
+[
+  {
+    "id": "normal_001",
+    "category": "normal",
+    "prompt": "Build a CRM with login, contacts, dashboard, role-based access and premium plan",
+    "expected_features": ["login", "contacts", "dashboard", "role_based_access", "premium_plan"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "normal_002",
+    "category": "normal",
+    "prompt": "Create an LMS application with student and teacher roles, course catalogs, and video streaming",
+    "expected_features": ["student_role", "teacher_role", "course_catalog", "video_streaming"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "normal_003",
+    "category": "normal",
+    "prompt": "Design an E-commerce platform with a shopping cart, checkout flow, user accounts, and product listings",
+    "expected_features": ["shopping_cart", "checkout", "user_accounts", "product_listings"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "normal_004",
+    "category": "normal",
+    "prompt": "Develop a hospital management system for doctors and patients to book appointments and view medical records",
+    "expected_features": ["doctor_role", "patient_role", "appointments", "medical_records"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "normal_005",
+    "category": "normal",
+    "prompt": "Build an HRMS app for managing employee leave requests, payroll processing, and organizational charts",
+    "expected_features": ["leave_management", "payroll", "org_charts"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "normal_006",
+    "category": "normal",
+    "prompt": "Create an inventory management app to track stock levels, alert on low stock, and manage suppliers",
+    "expected_features": ["stock_tracking", "low_stock_alerts", "supplier_management"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "normal_007",
+    "category": "normal",
+    "prompt": "Design a banking dashboard showing account balances, recent transactions, and money transfer capabilities",
+    "expected_features": ["account_balances", "recent_transactions", "money_transfer"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "normal_008",
+    "category": "normal",
+    "prompt": "Develop a hotel booking app where users can search rooms, check availability, and make payments",
+    "expected_features": ["room_search", "availability_check", "payments"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "normal_009",
+    "category": "normal",
+    "prompt": "Build a library management app for librarians to add books and users to check them out",
+    "expected_features": ["librarian_role", "user_role", "add_books", "checkout_books"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "normal_010",
+    "category": "normal",
+    "prompt": "Create a support ticket system where customers can raise issues and agents can resolve them",
+    "expected_features": ["customer_role", "agent_role", "raise_tickets", "resolve_tickets"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "edge_001",
+    "category": "edge",
+    "prompt": "Make an app",
+    "expected_features": [],
+    "expected_should_pass": false
+  },
+  {
+    "id": "edge_002",
+    "category": "edge",
+    "prompt": "Create a completely public anonymous app that requires users to have a verified admin account to read posts",
+    "expected_features": ["public_access", "admin_account"],
+    "expected_should_pass": false
+  },
+  {
+    "id": "edge_003",
+    "category": "edge",
+    "prompt": "Build a system to manage tasks, users, teams, projects, billing, invoices, CRM, inventory, shipping, and email marketing all in one page",
+    "expected_features": ["tasks", "users", "teams", "projects", "billing", "invoices", "crm", "inventory", "shipping", "email_marketing"],
+    "expected_should_pass": false
+  },
+  {
+    "id": "edge_004",
+    "category": "edge",
+    "prompt": "Generate an app with a dashboard but don't use any database tables to store data",
+    "expected_features": ["dashboard", "no_database"],
+    "expected_should_pass": false
+  },
+  {
+    "id": "edge_005",
+    "category": "edge",
+    "prompt": "I need a premium user dashboard and a free tier dashboard but no authentication system",
+    "expected_features": ["premium_dashboard", "free_dashboard", "no_authentication"],
+    "expected_should_pass": false
+  },
+  {
+    "id": "edge_006",
+    "category": "edge",
+    "prompt": "Create an admin analytics page but there should be no admin users",
+    "expected_features": ["admin_analytics", "no_admin_users"],
+    "expected_should_pass": false
+  },
+  {
+    "id": "edge_007",
+    "category": "edge",
+    "prompt": "Build a payment feature but no billing, no credit card processing, and no invoices",
+    "expected_features": ["payments", "no_billing"],
+    "expected_should_pass": false
+  },
+  {
+    "id": "edge_008",
+    "category": "edge",
+    "prompt": "Just make a dashboard page",
+    "expected_features": ["dashboard"],
+    "expected_should_pass": true
+  },
+  {
+    "id": "edge_009",
+    "category": "edge",
+    "prompt": "App that takes data and shows data but has no users and no name",
+    "expected_features": ["data_input", "data_output", "no_users"],
+    "expected_should_pass": false
+  },
+  {
+    "id": "edge_010",
+    "category": "edge",
+    "prompt": "Create a secure banking application without passwords",
+    "expected_features": ["banking", "no_passwords"],
+    "expected_should_pass": false
+  }
+]
