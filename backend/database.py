@@ -29,6 +29,4 @@ def init_db():
     except Exception as e:
         print("Could not initialize database. Please check DATABASE_URL:", e)
 
-# Initialize DB on import if DATABASE_URL is present
-if os.environ.get("DATABASE_URL"):
-    init_db()
+
