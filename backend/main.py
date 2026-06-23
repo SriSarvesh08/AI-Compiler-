@@ -128,6 +128,12 @@ app.add_middleware(
 )
 
 # Include routers
+@app.on_event("startup")
+async def startup_event():
+    if os.environ.get("DATABASE_URL"):
+        from database import init_db
+        init_db()
+
 app.include_router(generate.router)
 app.include_router(evaluation.router)
 app.include_router(auth.router)
