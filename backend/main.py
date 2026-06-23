@@ -127,12 +127,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include routers
-@app.on_event("startup")
-async def startup_event():
-    if os.environ.get("DATABASE_URL"):
+@app.get("/init-db")
+async def initialize_database():
+    try:
         from database import init_db
         init_db()
+        return {"status": "success", "message": "Database initialized successfully"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
 
 app.include_router(generate.router)
 app.include_router(evaluation.router)
