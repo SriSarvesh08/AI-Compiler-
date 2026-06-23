@@ -237,6 +237,37 @@ export interface DesignResponse {
   design_time_ms: number;
 }
 
+/** API response wrapper for schema generation */
+export interface SchemaGenerationResponse {
+  success: boolean;
+  schemas: SchemaGenerationOutput | null;
+  error: string | null;
+  generation_time_ms: number;
+}
+
+/** API response wrapper for validation */
+export interface ValidationResponse {
+  success: boolean;
+  validation: ValidationOutput | null;
+  error: string | null;
+}
+
+/** API response wrapper for repair */
+export interface RepairResponse {
+  success: boolean;
+  before_validation: ValidationOutput | null;
+  repair: RepairOutput | null;
+  after_validation: ValidationOutput | null;
+  error: string | null;
+}
+
+/** API response wrapper for runtime simulation */
+export interface RuntimeResponse {
+  success: boolean;
+  runtime: RuntimeOutput | null;
+  error: string | null;
+}
+
 /** API response wrapper for full pipeline */
 export interface FullPipelineResponse {
   success: boolean;

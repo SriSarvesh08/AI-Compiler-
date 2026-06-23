@@ -343,7 +343,7 @@ export async function modifyPipeline(
 /**
  * Shared network error handler for all API calls.
  */
-function _handleNetworkError<T extends { error: string }>(
+function _handleNetworkError<T extends { error: string | null }>(
   error: unknown,
   fallback: T
 ): T {

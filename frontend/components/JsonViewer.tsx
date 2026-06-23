@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface JsonViewerProps {
   data: object;
   title?: string;
   extractionTime?: number;
+  defaultExpanded?: boolean;
 }
 
 /**
